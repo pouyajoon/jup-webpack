@@ -55,7 +55,8 @@ export default (dirname: string, config: IWebpackConfiguration) => {
             filename: '[name].js',
             chunkFilename: '[name].chunk.js',
             pathinfo: true,
-            path: config.path.public
+            path: config.path.public,
+            publicPath: '/'
         },
         resolveLoader: {
             modules: ['node_modules']

@@ -22,13 +22,13 @@ export default (helper: WebpackHelper, externalPackages) => {
     const gqlbPackage = require(path.join(gqlbPath, 'package.json'));
 
     const configuration = helper.getConfiguration(config.name);
-    console.log('configuration', configuration);
+    // console.log('configuration', configuration);
 
     // const configuration = configuration();
     // const icon = cloudinaryTransform(configuration.profile.logo.square, 'f_ico,w_128,h_128');
     const icon = configuration.profile.logo.square;
     // tslint:disable-next-line:no-console
-    console.log('icon', icon);
+    // console.log('icon', icon);
     return [
         // new HardSourceWebpackPlugin(),
         // new ManifestPlugin({
