@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "es6",
+        ],
+        "outDir": "dist",
+        "target": "es5",
+        "esModuleInterop": true,
+        "resolveJsonModule": true
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
