@@ -66,7 +66,7 @@ export default (helper: WebpackHelper, externalPackages) => {
         //     // "window.react": "React",
         //     // "window.React": "React"
         // })
-        // new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
         new ForkTsCheckerWebpackPlugin({
             async: true,
             watch: config.path.src,

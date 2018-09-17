@@ -16,7 +16,7 @@ export default (config: IWebpackConfiguration) => {
         // hmr: true,
         progress: true,
         quiet: false,
-        hot: false, // hot module replacement. Depends on HotModuleReplacementPlugin
+        hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
         https: false, // true for self-signed, object for cert authority
         noInfo: false, // only errors & warns on hot reload
         inline: true,
