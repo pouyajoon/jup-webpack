@@ -17,7 +17,7 @@ export default (helper: WebpackHelper, externalPackages) => {
     const { config, packageJson } = helper;
 
     const gqlbPath = path.join(config.path.root, 'src/gqlb/');
-    const configPath = `${gqlbPath}/webpack/config/`;
+    const configPath = `./config/`;
 
     const gqlbPackage = require(path.join(gqlbPath, 'package.json'));
 
