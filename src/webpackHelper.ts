@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { IWebpackConfiguration, IPackageJson } from './models';
 import { merge } from 'lodash';
-import { IConfiguration } from '@gqlb/Configuration/models';
+// import { IConfiguration } from '@gqlb/Configuration/models';
 
 export class WebpackHelper {
     config: IWebpackConfiguration;
@@ -9,9 +9,9 @@ export class WebpackHelper {
         this.config = config;
     }
 
-    getConfiguration(name: string): IConfiguration {
-        const base = require(this.getFromRoot(`configuration/base.config.json`));
-        const config = require(this.getFromRoot(`configuration/${name}.config.json`));
+    getConfiguration(name: string) {
+        const base = require(this.getFromRoot(`configurations/base.config.json`));
+        const config = require(this.getFromRoot(`configurations/${name}.config.json`));
         return merge(base, config);
     }
 

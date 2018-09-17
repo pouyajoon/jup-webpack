@@ -9,7 +9,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 // const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-import { cloudinaryTransform } from './../../../../gqlb/src/Utils/Cloudinary/Cloudinary';
+// import { cloudinaryTransform } from './../../../../gqlb/src/Utils/Cloudinary/Cloudinary';
 
 export default (helper: WebpackHelper, externalPackages) => {
     const scripts = externalPackages;
@@ -25,7 +25,8 @@ export default (helper: WebpackHelper, externalPackages) => {
     console.log('configuration', configuration);
 
     // const configuration = configuration();
-    const icon = cloudinaryTransform(configuration.profile.logo.square, 'f_ico,w_128,h_128');
+    // const icon = cloudinaryTransform(configuration.profile.logo.square, 'f_ico,w_128,h_128');
+    const icon = configuration.profile.logo.square;
     // tslint:disable-next-line:no-console
     console.log('icon', icon);
     return [
