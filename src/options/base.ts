@@ -39,7 +39,7 @@ export default (dirname: string, config: IWebpackConfiguration) => {
         // /^[!\.]/
     ];
     const externalPackages = getExternalsUrl(helper, externalLibs);
-    externalPackages.push('main.js');
+    externalPackages.push(`main.js?${helper.packageJson.version}`);
     // const plugins = require('./../plugins/plugins')(dirname, config, externalPackages);
     // const vendor = ['three', '@material-ui/icons', 'lodash', 'auth0-js', 'react-color', 'apollo-client'];
     // const publicPath = path.join(config.path.public);
