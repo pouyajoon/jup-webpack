@@ -6,18 +6,17 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var webpack = __importStar(require("webpack"));
 var path = require('path');
-// const ManifestPlugin = require('webpack-manifest-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
-// const webpack = require('webpack');
+var html_webpack_plugin_1 = __importDefault(require("html-webpack-plugin"));
+var clean_webpack_plugin_1 = __importDefault(require("clean-webpack-plugin"));
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-// const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-// import { cloudinaryTransform } from './../../../../gqlb/src/Utils/Cloudinary/Cloudinary';
+var copy_webpack_plugin_1 = __importDefault(require("copy-webpack-plugin"));
+var fork_ts_checker_webpack_plugin_1 = __importDefault(require("fork-ts-checker-webpack-plugin"));
 exports.default = (function (helper, externalPackages) {
     var scripts = externalPackages;
     var config = helper.config, packageJson = helper.packageJson;
@@ -39,12 +38,12 @@ exports.default = (function (helper, externalPackages) {
         new webpack.DefinePlugin({
             'process.env.configuration': JSON.stringify(configuration)
         }),
-        new CopyWebpackPlugin([
+        new copy_webpack_plugin_1.default([
             { from: configPath + "/web.config", to: 'web.config' },
             { from: configPath + "/.htaccess", to: '' }
         ]),
-        new CleanWebpackPlugin([config.path.public], { allowExternal: true }),
-        new HtmlWebpackPlugin({
+        new clean_webpack_plugin_1.default({ cleanOnceBeforeBuildPatterns: [config.path.public] }),
+        new html_webpack_plugin_1.default({
             inject: false,
             cache: true,
             filename: 'index.html',
@@ -69,7 +68,7 @@ exports.default = (function (helper, externalPackages) {
         //     // "window.React": "React"
         // })
         new webpack.HotModuleReplacementPlugin(),
-        new ForkTsCheckerWebpackPlugin({
+        new fork_ts_checker_webpack_plugin_1.default({
             async: true,
             watch: config.path.src,
             tsconfig: helper.getFromRoot('tsconfig.json'),
