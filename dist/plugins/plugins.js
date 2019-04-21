@@ -21,7 +21,7 @@ exports.default = (function (helper, externalPackages) {
     var scripts = externalPackages;
     var config = helper.config, packageJson = helper.packageJson;
     var gqlbPath = path.join(config.path.root, 'src/gqlb/');
-    var configPath = path.join(config.path.root, 'node_modules/gqlb-webpack/config');
+    var configPath = path.join(config.path.root, 'node_modules/@jup/webpack/config');
     var gqlbPackage = require(path.join(gqlbPath, 'package.json'));
     var configuration = helper.getConfiguration(config.name);
     // console.log('configuration', configuration);
