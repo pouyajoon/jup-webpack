@@ -1,9 +1,9 @@
 {
-  "name": "gqlb-webpack",
+  "name": "@jup/webpack",
   "version": "0.0.19",
   "description": "gqlb webpack configurations",
   "main": "dist/index.js",
-  "repository": "git@github.com:pouyajoon/gqlb-webpack.git",
+  "repository": "git@github.com:pouyajoon/jup-webpack.git",
   "author": "pouya mohtacham",
   "license": "MIT",
   "private": false,
@@ -16,5 +16,8 @@
     "lodash": "4.17.11",
     "webpack": "4.30.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
 }
