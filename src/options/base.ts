@@ -29,7 +29,8 @@ export default (dirname: string, config: IWebpackConfiguration) => {
 
     const resolve = {
         alias: {
-            '@gqlb': path.resolve(dirname, '../src/gqlb/src/')
+            '@gqlb': path.resolve(dirname, '../src/gqlb/src/'),
+            '@jup/core': path.resolve(dirname, '../../../jup/core/src/')
         },
         extensions
     };
