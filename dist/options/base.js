@@ -36,7 +36,7 @@ exports.default = (function (dirname, config) {
     var resolve = {
         alias: {
             '@gqlb': path.resolve(dirname, '../src/gqlb/src/'),
-            '@jup/core': path.resolve(dirname, '../../../jup/core/src/')
+            '@jup/core': path.resolve(dirname, '../../../jup/core/dist/')
         },
         extensions: extensions
     };
