@@ -1,15 +1,11 @@
 import { WebpackHelper } from '../webpackHelper';
 import * as webpack from 'webpack';
 const path = require('path');
-// const ManifestPlugin = require('webpack-manifest-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-// const webpack = require('webpack');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-// const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-// import { cloudinaryTransform } from './../../../../gqlb/src/Utils/Cloudinary/Cloudinary';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 export default (helper: WebpackHelper, externalPackages) => {
     const scripts = externalPackages;
@@ -41,7 +37,7 @@ export default (helper: WebpackHelper, externalPackages) => {
             { from: `${configPath}/web.config`, to: 'web.config' },
             { from: `${configPath}/.htaccess`, to: '' }
         ]),
-        new CleanWebpackPlugin([config.path.public], { allowExternal: true }),
+        new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: [config.path.public] }),
         new HtmlWebpackPlugin({
             inject: false,
             cache: true,
