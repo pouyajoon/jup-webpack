@@ -16,9 +16,9 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@jup/core@0.3.6":
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/@jup/core/-/core-0.3.6.tgz#c61aad67291680a5c1b982809cc4e33f66c2070e"
+"@jup/core@0.3.7":
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/@jup/core/-/core-0.3.7.tgz#145dc0073847701d30274da416d156caad21c1a2"
   dependencies:
     pluralize "7.0.0"
     ts-node "8.1.0"

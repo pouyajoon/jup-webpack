@@ -37,7 +37,9 @@ export class WebpackHelper {
 
     allFiles(dirnames: string[], extentions: string[]) {
         const files = dirnames.map(dn => this.files(dn, extentions));
-        return mergeArrayOfArray(files);
+        const all = mergeArrayOfArray(files);
+        console.log(all);
+        return all;
     }
 
     files(dirname: string, extentions: string[]) {

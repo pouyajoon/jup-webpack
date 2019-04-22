@@ -42,7 +42,9 @@ var WebpackHelper = /** @class */ (function () {
     WebpackHelper.prototype.allFiles = function (dirnames, extentions) {
         var _this = this;
         var files = dirnames.map(function (dn) { return _this.files(dn, extentions); });
-        return core_1.mergeArrayOfArray(files);
+        var all = core_1.mergeArrayOfArray(files);
+        console.log(all);
+        return all;
     };
     WebpackHelper.prototype.files = function (dirname, extentions) {
         var glob = require('glob');
