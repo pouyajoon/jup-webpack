@@ -23,6 +23,17 @@ export default (helper: WebpackHelper, externalPackages) => {
     // const configuration = configuration();
     // const icon = cloudinaryTransform(configuration.profile.logo.square, 'f_ico,w_128,h_128');
     const icon = configuration.profile.logo.square;
+
+    const forkOptions = {
+        //async: false,
+        watch: helper.getFromRoot('src'),
+        tsconfig: helper.getFromRoot('tsconfig.json'),
+        tslint: helper.getFromRoot('tslint.json'),
+        measureCompilationTime: true,
+        useTypescriptIncrementalApi: false,
+        tslintAutoFix: true
+    };
+    console.log(forkOptions);
     // tslint:disable-next-line:no-console
     // console.log('icon', icon);
     return [
@@ -63,11 +74,6 @@ export default (helper: WebpackHelper, externalPackages) => {
         //     // "window.React": "React"
         // })
         new webpack.HotModuleReplacementPlugin(),
-        new ForkTsCheckerWebpackPlugin({
-            async: true,
-            watch: config.path.src,
-            tsconfig: helper.getFromRoot('tsconfig.json'),
-            tslint: helper.getFromRoot('tslint.json')
-        })
+        new ForkTsCheckerWebpackPlugin(forkOptions)
     ];
 };

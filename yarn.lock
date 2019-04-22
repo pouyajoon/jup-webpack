@@ -1056,9 +1056,9 @@ for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
 
-fork-ts-checker-webpack-plugin@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-1.1.0.tgz#b86ad22bd87cc243763e2bf384fe5192026238fc"
+fork-ts-checker-webpack-plugin@1.2.0-beta.1:
+  version "1.2.0-beta.1"
+  resolved "https://registry.yarnpkg.com/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-1.2.0-beta.1.tgz#d1b37ff9ee919d4344a422276d15ac76c6695bbd"
   dependencies:
     babel-code-frame "^6.22.0"
     chalk "^2.4.1"

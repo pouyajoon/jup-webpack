@@ -3,10 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var typescript_1 = __importDefault(require("../loaders/typescript"));
 var babel_1 = __importDefault(require("../loaders/babel"));
-var pug_1 = __importDefault(require("../loaders/pug"));
 var css_1 = __importDefault(require("../loaders/css"));
+var pug_1 = __importDefault(require("../loaders/pug"));
+var typescript_1 = __importDefault(require("../loaders/typescript"));
 exports.default = (function (helper) {
     var rules = [
         typescript_1.default(helper),

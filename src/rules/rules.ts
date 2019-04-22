@@ -1,9 +1,9 @@
-import { WebpackHelper } from '../webpackHelper';
-import typescript from '../loaders/typescript';
-import babel from '../loaders/babel';
-import pug from '../loaders/pug';
-import css from '../loaders/css';
 import { RuleSetRule } from 'webpack';
+import babel from '../loaders/babel';
+import css from '../loaders/css';
+import pug from '../loaders/pug';
+import typescript from '../loaders/typescript';
+import { WebpackHelper } from '../webpackHelper';
 
 export default (helper: WebpackHelper) => {
     const rules: RuleSetRule[] = [

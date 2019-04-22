@@ -28,6 +28,16 @@ exports.default = (function (helper, externalPackages) {
     // const configuration = configuration();
     // const icon = cloudinaryTransform(configuration.profile.logo.square, 'f_ico,w_128,h_128');
     var icon = configuration.profile.logo.square;
+    var forkOptions = {
+        //async: false,
+        watch: helper.getFromRoot('src'),
+        tsconfig: helper.getFromRoot('tsconfig.json'),
+        tslint: helper.getFromRoot('tslint.json'),
+        measureCompilationTime: true,
+        useTypescriptIncrementalApi: false,
+        tslintAutoFix: true
+    };
+    console.log(forkOptions);
     // tslint:disable-next-line:no-console
     // console.log('icon', icon);
     return [
@@ -68,11 +78,6 @@ exports.default = (function (helper, externalPackages) {
         //     // "window.React": "React"
         // })
         new webpack.HotModuleReplacementPlugin(),
-        new fork_ts_checker_webpack_plugin_1.default({
-            async: true,
-            watch: config.path.src,
-            tsconfig: helper.getFromRoot('tsconfig.json'),
-            tslint: helper.getFromRoot('tslint.json')
-        })
+        new fork_ts_checker_webpack_plugin_1.default(forkOptions)
     ];
 });

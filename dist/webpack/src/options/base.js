@@ -54,8 +54,11 @@ exports.default = (function (dirname, config) {
     // const publicPath = path.join(config.path.public);
     var res = {
         mode: config.mode,
-        entry: helper.allFiles([dirname], extensions),
-        // entry: './src/App.tsx',
+        // entry: helper.allFiles([jupCoreSrc, webpackSrc, dirname], extensions),
+        // entry: [...(helper.allFiles([jupCoreSrc], extensions))],
+        // , './src/App.tsx'
+        entry: './src/App.tsx',
+        // entry: './src/gqlb/src/Utils/colors.ts',
         // entry: {
         //     vendor,
         //     main: "./src/App.tsx"
