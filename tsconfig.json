@@ -10,10 +10,17 @@
         "moduleResolution": "node",
         "typeRoots": [
             "node_modules/@types"
-        ]
+        ],
+        "baseUrl": "./",
+        "paths": {
+            "@jup/core": [
+                "../core/src/index.ts"
+            ]
+        }
     },
     "include": [
-        "./src/**/*.ts"
+        "./src/**/*.ts",
+        "./../core/src/**/*.ts",
     ],
     "exclude": [
         "node_modules"

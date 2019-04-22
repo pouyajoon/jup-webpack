@@ -27,11 +27,15 @@ export default (dirname: string, config: IWebpackConfiguration) => {
     const helper = new WebpackHelper(config);
     const extensions = ['.ts', '.tsx', '.js', '.json', '.css'];
 
+
+    const webpackSrc = path.resolve(dirname, '../../../jup/webpack/src/');
+    const jupCoreSrc = path.resolve(dirname, '../../../jup/core/src/')
+
     const resolve = {
         alias: {
             '@gqlb': path.resolve(dirname, '../src/gqlb/src/'),
-            '@jup/webpack': path.resolve(dirname, '../../../jup/webpack/src/'),
-            '@jup/core': path.resolve(dirname, '../../../jup/core/src/')
+            '@jup/webpack': webpackSrc,
+            '@jup/core': jupCoreSrc
         },
         extensions
     };
@@ -47,8 +51,8 @@ export default (dirname: string, config: IWebpackConfiguration) => {
     // const publicPath = path.join(config.path.public);
     const res: webpack.Configuration = {
         mode: config.mode,
-        // entry: helper.files(dirname, extensions),
-        entry: './src/App.tsx',
+        entry: helper.allFiles([dirname], extensions),
+        // entry: './src/App.tsx',
         // entry: {
         //     vendor,
         //     main: "./src/App.tsx"
