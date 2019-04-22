@@ -1,6 +1,6 @@
 export interface IWebpackConfiguration {
     mode: 'development' | 'production';
-    name: string;
+    name: 'development' | 'alpha' | 'beta' | 'production';
     port: number;
     path: {
         src: string;

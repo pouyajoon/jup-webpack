@@ -31,14 +31,20 @@ export default (dirname: string, config: IWebpackConfiguration) => {
     const webpackSrc = path.resolve(dirname, '../../../jup/webpack/src/');
     const jupCoreSrc = path.resolve(dirname, '../../../jup/core/src/')
 
-    const resolve = {
+    const resolve: any = {
         alias: {
             '@gqlb': path.resolve(dirname, '../src/gqlb/src/'),
-            '@jup/webpack': webpackSrc,
-            '@jup/core': jupCoreSrc
         },
         extensions
     };
+
+    if (config.name === 'development') {
+        resolve.alias = {
+            ...resolve.alias,
+            '@jup/webpack': webpackSrc,
+            '@jup/core': jupCoreSrc
+        }
+    }
 
     const externals = [
         getExternalLibsMapping(externalLibs)
