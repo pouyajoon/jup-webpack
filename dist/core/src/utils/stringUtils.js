@@ -30,7 +30,7 @@ exports.capitalize = function (s) {
 exports.toUnderscore = function (input) {
     return input.replace(/([A-Z])/g, function ($1) { return '_' + $1.toLowerCase(); });
 };
-exports.plural = function (s) {
+exports.toPlural = function (s) {
     return pluralize.plural(s);
 };
 exports.singularize = function (s) {

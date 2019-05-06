@@ -1,4 +1,4 @@
-import webpack from 'webpack';
+import * as webpack from 'webpack';
 import * as path from 'path';
 import { IWebpackConfiguration, IExternalLib } from '../models';
 import { WebpackHelper } from '../webpackHelper';
@@ -27,13 +27,12 @@ export default (dirname: string, config: IWebpackConfiguration) => {
     const helper = new WebpackHelper(config);
     const extensions = ['.ts', '.tsx', '.js', '.json', '.css'];
 
-
     const webpackSrc = path.resolve(dirname, '../../../jup/webpack/src/');
-    const jupCoreSrc = path.resolve(dirname, '../../../jup/core/src/')
+    const jupCoreSrc = path.resolve(dirname, '../../../jup/core/src/');
 
     const resolve: any = {
         alias: {
-            '@gqlb': path.resolve(dirname, '../src/gqlb/src/'),
+            '@gqlb': path.resolve(dirname, '../src/gqlb/src/')
         },
         extensions
     };
@@ -43,7 +42,7 @@ export default (dirname: string, config: IWebpackConfiguration) => {
             ...resolve.alias,
             '@jup/webpack': webpackSrc,
             '@jup/core': jupCoreSrc
-        }
+        };
     }
 
     const externals = [
@@ -57,6 +56,7 @@ export default (dirname: string, config: IWebpackConfiguration) => {
     // const publicPath = path.join(config.path.public);
     const res: webpack.Configuration = {
         mode: config.mode,
+
         // entry: helper.allFiles([jupCoreSrc, webpackSrc, dirname], extensions),
         // entry: [...(helper.allFiles([jupCoreSrc], extensions))],
         // , './src/App.tsx'
@@ -78,7 +78,8 @@ export default (dirname: string, config: IWebpackConfiguration) => {
         },
         resolve,
         module: {
-            rules: rules(helper)
+            rules: rules(helper),
+            strictExportPresence: true
         },
         externals,
         plugins: plugins(helper, externalPackages),

@@ -1,6 +1,6 @@
 import { WebpackHelper } from '../webpackHelper';
 import * as webpack from 'webpack';
-const path = require('path');
+import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -25,7 +25,7 @@ export default (helper: WebpackHelper, externalPackages) => {
     const icon = configuration.profile.logo.square;
 
     const forkOptions = {
-        //async: false,
+        // async: false,
         watch: helper.getFromRoot('src'),
         tsconfig: helper.getFromRoot('tsconfig.json'),
         tslint: helper.getFromRoot('tslint.json'),

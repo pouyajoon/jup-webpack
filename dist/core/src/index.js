@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var stringUtils_1 = require("./utils/stringUtils");
 exports.camelize = stringUtils_1.camelize;
 exports.capitalize = stringUtils_1.capitalize;
-exports.plural = stringUtils_1.plural;
+exports.toPlural = stringUtils_1.toPlural;
 exports.singularize = stringUtils_1.singularize;
 exports.toUnderscore = stringUtils_1.toUnderscore;
 var arrayUtils_1 = require("./utils/arrayUtils");
