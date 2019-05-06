@@ -22,3 +22,15 @@ function mergeValueByName(acc, v) {
     return acc;
 }
 exports.mergeValueByName = mergeValueByName;
+function mergeOnAnObjectByNameRemoveName(acc, v) {
+    acc[v.name] = v;
+    delete v.name;
+    return acc;
+}
+exports.mergeOnAnObjectByNameRemoveName = mergeOnAnObjectByNameRemoveName;
+function mergeOnName(list) {
+    var init = {};
+    var modelsStore = list.reduce(mergeOnAnObjectByName, init);
+    return modelsStore;
+}
+exports.mergeOnName = mergeOnName;

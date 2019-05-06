@@ -48,7 +48,7 @@ exports.default = (function (dirname, config) {
     var jupCoreSrc = path.resolve(dirname, '../../../jup/core/src/');
     var resolve = {
         alias: {
-            '@gqlb': path.resolve(dirname, '../src/gqlb/src/'),
+            '@gqlb': path.resolve(dirname, '../src/gqlb/src/')
         },
         extensions: extensions
     };
@@ -87,7 +87,8 @@ exports.default = (function (dirname, config) {
         },
         resolve: resolve,
         module: {
-            rules: rules_1.default(helper)
+            rules: rules_1.default(helper),
+            strictExportPresence: true
         },
         externals: externals,
         plugins: plugins_1.default(helper, externalPackages),

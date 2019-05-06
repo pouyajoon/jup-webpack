@@ -7,6 +7,10 @@
   "author": "pouya mohtacham",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
   "devDependencies": {
     "@jup/core": "0.3.7",
     "@types/node": "11.13.6",
