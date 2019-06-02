@@ -31,19 +31,18 @@ export class WebpackHelper {
     }
 
     resolveApp(relativePath: string) {
-        let appDirectory = require('fs').realpathSync(process.cwd());
+        const appDirectory = require('fs').realpathSync(process.cwd());
         return path.resolve(appDirectory, relativePath);
     }
 
     allFiles(dirnames: string[], extentions: string[]) {
         const files = dirnames.map(dn => this.files(dn, extentions));
         const all = mergeArrayOfArray(files);
-        console.log(all);
         return all;
     }
 
     files(dirname: string, extentions: string[]) {
-        let glob = require('glob');
+        const glob = require('glob');
         const srcPath = path.join(dirname, this.config.path.src);
 
         let files: string[] = [];

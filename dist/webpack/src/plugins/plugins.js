@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var webpack = __importStar(require("webpack"));
 var path_1 = __importDefault(require("path"));
 var html_webpack_plugin_1 = __importDefault(require("html-webpack-plugin"));
-var clean_webpack_plugin_1 = __importDefault(require("clean-webpack-plugin"));
+var clean_webpack_plugin_1 = require("clean-webpack-plugin");
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var copy_webpack_plugin_1 = __importDefault(require("copy-webpack-plugin"));
 var fork_ts_checker_webpack_plugin_1 = __importDefault(require("fork-ts-checker-webpack-plugin"));
@@ -52,7 +52,7 @@ exports.default = (function (helper, externalPackages) {
             { from: configPath + "/web.config", to: 'web.config' },
             { from: configPath + "/.htaccess", to: '' }
         ]),
-        new clean_webpack_plugin_1.default({ cleanOnceBeforeBuildPatterns: [config.path.public] }),
+        new clean_webpack_plugin_1.CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: [config.path.public] }),
         new html_webpack_plugin_1.default({
             inject: false,
             cache: true,

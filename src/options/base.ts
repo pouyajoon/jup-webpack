@@ -3,8 +3,10 @@ import * as path from 'path';
 import { IWebpackConfiguration, IExternalLib } from '../models';
 import { WebpackHelper } from '../webpackHelper';
 import rules from '../rules/rules';
-import { externalLibs } from './externalLibs';
+// import { externalLibs } from './externalLibs';
 import plugins from './../plugins/plugins';
+
+const externalLibs = [];
 
 function getExternalsUrl(helper: WebpackHelper, libs: IExternalLib[]) {
     const { packageJson, config } = helper;
@@ -78,8 +80,7 @@ export default (dirname: string, config: IWebpackConfiguration) => {
         },
         resolve,
         module: {
-            rules: rules(helper),
-            strictExportPresence: true
+            rules: rules(helper)
         },
         externals,
         plugins: plugins(helper, externalPackages),

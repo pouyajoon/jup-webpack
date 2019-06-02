@@ -24,8 +24,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var path = __importStar(require("path"));
 var webpackHelper_1 = require("../webpackHelper");
 var rules_1 = __importDefault(require("../rules/rules"));
-var externalLibs_1 = require("./externalLibs");
+// import { externalLibs } from './externalLibs';
 var plugins_1 = __importDefault(require("./../plugins/plugins"));
+var externalLibs = [];
 function getExternalsUrl(helper, libs) {
     var packageJson = helper.packageJson, config = helper.config;
     var files = libs.map(function (externalLib) {
@@ -56,10 +57,10 @@ exports.default = (function (dirname, config) {
         resolve.alias = __assign({}, resolve.alias, { '@jup/webpack': webpackSrc, '@jup/core': jupCoreSrc });
     }
     var externals = [
-        getExternalLibsMapping(externalLibs_1.externalLibs)
+        getExternalLibsMapping(externalLibs)
         // /^[!\.]/
     ];
-    var externalPackages = getExternalsUrl(helper, externalLibs_1.externalLibs);
+    var externalPackages = getExternalsUrl(helper, externalLibs);
     externalPackages.push("main.js?" + helper.packageJson.version);
     // const plugins = require('./../plugins/plugins')(dirname, config, externalPackages);
     // const vendor = ['three', '@material-ui/icons', 'lodash', 'auth0-js', 'react-color', 'apollo-client'];
@@ -87,8 +88,7 @@ exports.default = (function (dirname, config) {
         },
         resolve: resolve,
         module: {
-            rules: rules_1.default(helper),
-            strictExportPresence: true
+            rules: rules_1.default(helper)
         },
         externals: externals,
         plugins: plugins_1.default(helper, externalPackages),

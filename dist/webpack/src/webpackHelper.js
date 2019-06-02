@@ -43,7 +43,6 @@ var WebpackHelper = /** @class */ (function () {
         var _this = this;
         var files = dirnames.map(function (dn) { return _this.files(dn, extentions); });
         var all = core_1.mergeArrayOfArray(files);
-        console.log(all);
         return all;
     };
     WebpackHelper.prototype.files = function (dirname, extentions) {

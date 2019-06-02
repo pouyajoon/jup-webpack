@@ -19,3 +19,5 @@ exports.wait = timeUtils_1.wait;
 var mapper_1 = require("./utils/mapper");
 exports.mapper = mapper_1.mapper;
 exports.getMapperMatch = mapper_1.getMapperMatch;
+var where_1 = require("./api/where/where");
+exports.createFilter = where_1.createFilter;
