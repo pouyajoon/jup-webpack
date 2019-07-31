@@ -17,6 +17,11 @@ function mergeOnAnObjectByName(acc, v) {
     return acc;
 }
 exports.mergeOnAnObjectByName = mergeOnAnObjectByName;
+function mergeOnAnObjectById(acc, v) {
+    acc[v.id] = v;
+    return acc;
+}
+exports.mergeOnAnObjectById = mergeOnAnObjectById;
 function mergeValueByName(acc, v) {
     acc[v.name] = v.value;
     return acc;

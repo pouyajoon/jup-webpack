@@ -13,6 +13,7 @@ exports.mergeOnAnObjectByName = arrayUtils_1.mergeOnAnObjectByName;
 exports.mergeValueByName = arrayUtils_1.mergeValueByName;
 exports.mergeOnAnObjectByNameRemoveName = arrayUtils_1.mergeOnAnObjectByNameRemoveName;
 exports.mergeOnName = arrayUtils_1.mergeOnName;
+exports.mergeOnAnObjectById = arrayUtils_1.mergeOnAnObjectById;
 var timeUtils_1 = require("./utils/timeUtils");
 exports.rwait = timeUtils_1.rwait;
 exports.wait = timeUtils_1.wait;
