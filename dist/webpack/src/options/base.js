@@ -54,7 +54,7 @@ exports.default = (function (dirname, config) {
         extensions: extensions
     };
     if (config.name === 'development') {
-        resolve.alias = __assign(__assign({}, resolve.alias), { '@jup/webpack': webpackSrc, '@jup/core': jupCoreSrc });
+        resolve.alias = __assign({}, resolve.alias, { '@jup/webpack': webpackSrc, '@jup/core': jupCoreSrc });
     }
     var externals = [
         getExternalLibsMapping(externalLibs)
