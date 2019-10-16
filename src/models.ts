@@ -2,6 +2,10 @@ export interface IWebpackConfiguration {
     mode: 'development' | 'production';
     name: 'development' | 'alpha' | 'beta' | 'production';
     port: number;
+
+    keys?: {
+        google?: string;
+    };
     path: {
         src: string;
         public: string;

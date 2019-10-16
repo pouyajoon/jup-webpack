@@ -1,4 +1,7 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
 var stringUtils_1 = require("./utils/stringUtils");
 exports.camelize = stringUtils_1.camelize;
@@ -6,14 +9,7 @@ exports.capitalize = stringUtils_1.capitalize;
 exports.toPlural = stringUtils_1.toPlural;
 exports.singularize = stringUtils_1.singularize;
 exports.toUnderscore = stringUtils_1.toUnderscore;
-var arrayUtils_1 = require("./utils/arrayUtils");
-exports.mergeArrayOfArray = arrayUtils_1.mergeArrayOfArray;
-exports.chunk = arrayUtils_1.chunk;
-exports.mergeOnAnObjectByName = arrayUtils_1.mergeOnAnObjectByName;
-exports.mergeValueByName = arrayUtils_1.mergeValueByName;
-exports.mergeOnAnObjectByNameRemoveName = arrayUtils_1.mergeOnAnObjectByNameRemoveName;
-exports.mergeOnName = arrayUtils_1.mergeOnName;
-exports.mergeOnAnObjectById = arrayUtils_1.mergeOnAnObjectById;
+__export(require("./utils/arrayUtils"));
 var timeUtils_1 = require("./utils/timeUtils");
 exports.rwait = timeUtils_1.rwait;
 exports.wait = timeUtils_1.wait;
@@ -22,3 +18,7 @@ exports.mapper = mapper_1.mapper;
 exports.getMapperMatch = mapper_1.getMapperMatch;
 var where_1 = require("./api/where/where");
 exports.createFilter = where_1.createFilter;
+__export(require("./packages/point/point"));
+__export(require("./packages/area/area"));
+__export(require("./packages/area/distance"));
+__export(require("./packages/area/perimeter"));

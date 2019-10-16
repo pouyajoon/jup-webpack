@@ -63,6 +63,7 @@ exports.default = (function (helper, externalPackages) {
                     gqlb: gqlbPackage.version,
                     app: packageJson.version
                 },
+                keys: config.keys,
                 env: config.name,
                 title: packageJson.name + " admin", scripts: scripts, mode: config,
                 icon: icon

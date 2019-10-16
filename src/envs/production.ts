@@ -6,7 +6,7 @@ export default (dirname: string, config: IWebpackConfiguration) => {
     config = Object.assign(defaultOptions(dirname), config);
     config.name = 'production';
     config.port = 80;
-    let devtool = 'source-map';
+    const devtool = 'source-map';
     const res = Object.assign(base(dirname, config), {
         mode: 'production',
         devtool

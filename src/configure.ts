@@ -10,8 +10,8 @@ const configure = (name, gqlbPath, rootPath) => {
     rootPath = rootPath || '';
     const srcPath = path.join(rootPath, `package.${name}.json`);
     const gqlbFilePath = path.join(gqlbPath, 'package.json');
-    let src = json(srcPath);
-    let gqlb = json(gqlbFilePath);
+    const src = json(srcPath);
+    const gqlb = json(gqlbFilePath);
 
     const res = merge(gqlb, src);
     const packagePath = path.join(rootPath, 'package.json');

@@ -34,6 +34,7 @@ export default (helper: WebpackHelper, externalPackages) => {
         tslintAutoFix: true
     };
     console.log(forkOptions);
+
     // tslint:disable-next-line:no-console
     // console.log('icon', icon);
     return [
@@ -59,6 +60,7 @@ export default (helper: WebpackHelper, externalPackages) => {
                     gqlb: gqlbPackage.version,
                     app: packageJson.version
                 },
+                keys: config.keys,
                 env: config.name,
                 title: `${packageJson.name} admin`, scripts, mode: config,
                 icon

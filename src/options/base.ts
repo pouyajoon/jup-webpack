@@ -58,7 +58,6 @@ export default (dirname: string, config: IWebpackConfiguration) => {
     // const publicPath = path.join(config.path.public);
     const res: webpack.Configuration = {
         mode: config.mode,
-
         // entry: helper.allFiles([jupCoreSrc, webpackSrc, dirname], extensions),
         // entry: [...(helper.allFiles([jupCoreSrc], extensions))],
         // , './src/App.tsx'

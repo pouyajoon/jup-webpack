@@ -7,7 +7,7 @@ export default (dirname: string, config: IWebpackConfiguration) => {
     config = Object.assign(defaultOptions(dirname), config);
     const devServerOptions = devServer(config);
     config.name = 'development';
-    let devtool = 'cheap-module-source-map';
+    const devtool = 'cheap-module-source-map';
     const res = Object.assign(base(dirname, config), {
         cache: true,
         devServer: devServerOptions,

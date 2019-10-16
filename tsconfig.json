@@ -6,6 +6,7 @@
         "outDir": "dist",
         "target": "es5",
         "esModuleInterop": true,
+        "downlevelIteration": true,
         "resolveJsonModule": true,
         "moduleResolution": "node",
         "typeRoots": [
