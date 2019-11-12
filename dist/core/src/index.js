@@ -22,3 +22,4 @@ __export(require("./packages/point/point"));
 __export(require("./packages/area/area"));
 __export(require("./packages/area/distance"));
 __export(require("./packages/area/perimeter"));
+__export(require("./packages/geometry/geometry"));

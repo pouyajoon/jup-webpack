@@ -54,7 +54,7 @@ exports.default = (function (dirname, config) {
         extensions: extensions
     };
     if (config.name === 'development') {
-        resolve.alias = __assign({}, resolve.alias, { '@jup/webpack': webpackSrc, '@jup/core': jupCoreSrc });
+        resolve.alias = __assign(__assign({}, resolve.alias), { '@jup/webpack': webpackSrc, '@jup/core': jupCoreSrc });
     }
     var externals = [
         getExternalLibsMapping(externalLibs)
@@ -62,6 +62,7 @@ exports.default = (function (dirname, config) {
     ];
     var externalPackages = getExternalsUrl(helper, externalLibs);
     externalPackages.push("main.js?" + helper.packageJson.version);
+    externalPackages.push("vendors~main.chunk.js?" + helper.packageJson.version);
     // const plugins = require('./../plugins/plugins')(dirname, config, externalPackages);
     // const vendor = ['three', '@material-ui/icons', 'lodash', 'auth0-js', 'react-color', 'apollo-client'];
     // const publicPath = path.join(config.path.public);
@@ -93,10 +94,16 @@ exports.default = (function (dirname, config) {
         externals: externals,
         plugins: plugins_1.default(helper, externalPackages),
         optimization: {
-            minimize: false
+            minimize: false,
+            splitChunks: {
+                chunks: 'all'
+            }
         },
         performance: {
-            hints: false
+            maxAssetSize: 60 * 2 * 512000,
+            maxEntrypointSize: 60 * 2 * 512000,
+            // hints: false
+            hints: 'error'
         }
         // optimization
     };

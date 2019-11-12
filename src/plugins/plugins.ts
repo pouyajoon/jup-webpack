@@ -6,6 +6,7 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 export default (helper: WebpackHelper, externalPackages) => {
     const scripts = externalPackages;
@@ -25,12 +26,12 @@ export default (helper: WebpackHelper, externalPackages) => {
     const icon = configuration.profile.logo.square;
 
     const forkOptions = {
-        // async: false,
+        async: true,
         watch: helper.getFromRoot('src'),
         tsconfig: helper.getFromRoot('tsconfig.json'),
         tslint: helper.getFromRoot('tslint.json'),
         measureCompilationTime: true,
-        useTypescriptIncrementalApi: false,
+        useTypescriptIncrementalApi: true,
         tslintAutoFix: true
     };
     console.log(forkOptions);
@@ -60,7 +61,7 @@ export default (helper: WebpackHelper, externalPackages) => {
                     gqlb: gqlbPackage.version,
                     app: packageJson.version
                 },
-                keys: config.keys,
+                keys: config.keys || {},
                 env: config.name,
                 title: `${packageJson.name} admin`, scripts, mode: config,
                 icon
@@ -75,7 +76,7 @@ export default (helper: WebpackHelper, externalPackages) => {
         //     // "window.react": "React",
         //     // "window.React": "React"
         // })
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
         new ForkTsCheckerWebpackPlugin(forkOptions)
     ];
 };

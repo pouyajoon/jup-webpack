@@ -14,11 +14,11 @@ export default (config: IWebpackConfiguration) => {
             index: '/index.html'
         }, // true for index.html upon 404, object for multiple paths
         // hmr: true,
-        progress: true,
-        quiet: false,
+        progress: false,
+        quiet: true,
         hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
         https: false, // true for self-signed, object for cert authority
-        noInfo: false, // only errors & warns on hot reload
+        noInfo: true, // only errors & warns on hot reload
         inline: true,
         // host: 'localhost',
         // port: 3035,

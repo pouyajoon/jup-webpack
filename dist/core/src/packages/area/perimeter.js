@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var distance_1 = require("./distance");
-function getPerimeter(points, scale) {
+function getPerimeter(points, ratio) {
     var d = 0;
     var sumDistance = 0;
-    var length = scale.length, dimension = scale.dimension;
     var p2;
     var p1;
     for (var i = 0; i < points.length - 1; i += 1) {
@@ -15,7 +14,7 @@ function getPerimeter(points, scale) {
         else {
             p2 = points[i + 1];
         }
-        d = distance_1.lineDistance(p1, p2) * length / dimension;
+        d = distance_1.lineDistance(p1, p2) * ratio;
         sumDistance += d;
     }
     return parseFloat(sumDistance.toFixed(1));

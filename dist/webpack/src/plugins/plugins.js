@@ -17,6 +17,7 @@ var clean_webpack_plugin_1 = require("clean-webpack-plugin");
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var copy_webpack_plugin_1 = __importDefault(require("copy-webpack-plugin"));
 var fork_ts_checker_webpack_plugin_1 = __importDefault(require("fork-ts-checker-webpack-plugin"));
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 exports.default = (function (helper, externalPackages) {
     var scripts = externalPackages;
     var config = helper.config, packageJson = helper.packageJson;
@@ -29,12 +30,12 @@ exports.default = (function (helper, externalPackages) {
     // const icon = cloudinaryTransform(configuration.profile.logo.square, 'f_ico,w_128,h_128');
     var icon = configuration.profile.logo.square;
     var forkOptions = {
-        // async: false,
+        async: true,
         watch: helper.getFromRoot('src'),
         tsconfig: helper.getFromRoot('tsconfig.json'),
         tslint: helper.getFromRoot('tslint.json'),
         measureCompilationTime: true,
-        useTypescriptIncrementalApi: false,
+        useTypescriptIncrementalApi: true,
         tslintAutoFix: true
     };
     console.log(forkOptions);
@@ -63,7 +64,7 @@ exports.default = (function (helper, externalPackages) {
                     gqlb: gqlbPackage.version,
                     app: packageJson.version
                 },
-                keys: config.keys,
+                keys: config.keys || {},
                 env: config.name,
                 title: packageJson.name + " admin", scripts: scripts, mode: config,
                 icon: icon
@@ -78,7 +79,7 @@ exports.default = (function (helper, externalPackages) {
         //     // "window.react": "React",
         //     // "window.React": "React"
         // })
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
         new fork_ts_checker_webpack_plugin_1.default(forkOptions)
     ];
 });

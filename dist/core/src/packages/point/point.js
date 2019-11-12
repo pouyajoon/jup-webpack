@@ -42,7 +42,7 @@ var Point = /** @class */ (function () {
     Point.prototype.clone = function () {
         return exports.Points.copy(this);
     };
-    Object.defineProperty(Point.prototype, "coordinates", {
+    Object.defineProperty(Point.prototype, "point2d", {
         get: function () {
             return { x: this.x, y: this.y };
         },

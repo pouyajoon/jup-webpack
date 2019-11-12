@@ -53,6 +53,7 @@ export default (dirname: string, config: IWebpackConfiguration) => {
     ];
     const externalPackages = getExternalsUrl(helper, externalLibs);
     externalPackages.push(`main.js?${helper.packageJson.version}`);
+    externalPackages.push(`vendors~main.chunk.js?${helper.packageJson.version}`);
     // const plugins = require('./../plugins/plugins')(dirname, config, externalPackages);
     // const vendor = ['three', '@material-ui/icons', 'lodash', 'auth0-js', 'react-color', 'apollo-client'];
     // const publicPath = path.join(config.path.public);
@@ -84,10 +85,17 @@ export default (dirname: string, config: IWebpackConfiguration) => {
         externals,
         plugins: plugins(helper, externalPackages),
         optimization: {
-            minimize: false
+            minimize: false,
+            splitChunks: {
+                chunks: 'all'
+            }
         },
         performance: {
-            hints: false
+            maxAssetSize: 60 * 2 * 512000,
+            maxEntrypointSize: 60 * 2 * 512000,
+
+            // hints: false
+            hints: 'error'
         }
         // optimization
     };
