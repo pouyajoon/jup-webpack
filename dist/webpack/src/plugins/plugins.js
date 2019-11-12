@@ -79,7 +79,7 @@ exports.default = (function (helper, externalPackages) {
         //     // "window.react": "React",
         //     // "window.React": "React"
         // })
-        // new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
         new fork_ts_checker_webpack_plugin_1.default(forkOptions)
     ];
 });
