@@ -14,7 +14,7 @@ exports.camelize = function (str) {
     }
     var a = str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
         if (+match === 0) {
-            return ''; // or if (/\s+/.test(match)) for white spaces
+            return ""; // or if (/\s+/.test(match)) for white spaces
         }
         return index === 0 ? match.toLowerCase() : match.toUpperCase();
     });
@@ -28,7 +28,7 @@ exports.capitalize = function (s) {
     return s.charAt(0).toUpperCase() + s.slice(1);
 };
 exports.toUnderscore = function (input) {
-    return input.replace(/([A-Z])/g, function ($1) { return '_' + $1.toLowerCase(); });
+    return input.replace(/([A-Z])/g, function ($1) { return "_" + $1.toLowerCase(); });
 };
 exports.toPlural = function (s) {
     return pluralize.plural(s);
