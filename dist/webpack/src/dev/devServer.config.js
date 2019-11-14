@@ -15,7 +15,7 @@ exports.default = (function (config) {
         },
         // hmr: true,
         progress: false,
-        quiet: true,
+        quiet: false,
         hot: true,
         https: false,
         noInfo: true,

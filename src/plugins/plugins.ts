@@ -26,13 +26,12 @@ export default (helper: WebpackHelper, externalPackages) => {
     const icon = configuration.profile.logo.square;
 
     const forkOptions = {
-        async: true,
         watch: helper.getFromRoot('src'),
         tsconfig: helper.getFromRoot('tsconfig.json'),
         tslint: helper.getFromRoot('tslint.json'),
         measureCompilationTime: true,
-        useTypescriptIncrementalApi: true,
-        tslintAutoFix: true
+        tslintAutoFix: true,
+        checkSyntacticErrors: true
     };
     console.log(forkOptions);
 

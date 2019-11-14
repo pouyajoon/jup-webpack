@@ -15,7 +15,7 @@ export default (config: IWebpackConfiguration) => {
         }, // true for index.html upon 404, object for multiple paths
         // hmr: true,
         progress: false,
-        quiet: true,
+        quiet: false,
         hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
         https: false, // true for self-signed, object for cert authority
         noInfo: true, // only errors & warns on hot reload
