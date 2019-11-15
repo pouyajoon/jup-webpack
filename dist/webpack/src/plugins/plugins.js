@@ -22,6 +22,7 @@ exports.default = (function (helper, externalPackages) {
     var scripts = externalPackages;
     var config = helper.config, packageJson = helper.packageJson;
     var gqlbPath = path_1.default.join(config.path.root, "src/gqlb/");
+    var assetsPath = path_1.default.join(config.path.root, "src/assets/");
     var configPath = path_1.default.join(config.path.root, "node_modules/@jup/webpack/config");
     var gqlbPackage = require(path_1.default.join(gqlbPath, "package.json"));
     var configuration = helper.getConfiguration(config.name);
@@ -50,7 +51,8 @@ exports.default = (function (helper, externalPackages) {
         }),
         new copy_webpack_plugin_1.default([
             { from: configPath + "/web.config", to: "web.config" },
-            { from: configPath + "/.htaccess", to: "" }
+            { from: configPath + "/.htaccess", to: "" },
+            { from: assetsPath, to: "assets" }
         ]),
         new clean_webpack_plugin_1.CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: [config.path.public] }),
         new html_webpack_plugin_1.default({

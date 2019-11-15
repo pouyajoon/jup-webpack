@@ -14,6 +14,7 @@ export default (helper: WebpackHelper, externalPackages) => {
     const { config, packageJson } = helper;
 
     const gqlbPath = path.join(config.path.root, "src/gqlb/");
+    const assetsPath = path.join(config.path.root, "src/assets/");
     const configPath = path.join(config.path.root, "node_modules/@jup/webpack/config");
 
     const gqlbPackage = require(path.join(gqlbPath, "package.json"));
@@ -47,7 +48,8 @@ export default (helper: WebpackHelper, externalPackages) => {
         }),
         new CopyWebpackPlugin([
             { from: `${configPath}/web.config`, to: "web.config" },
-            { from: `${configPath}/.htaccess`, to: "" }
+            { from: `${configPath}/.htaccess`, to: "" },
+            { from: assetsPath, to: "assets" }
         ]),
         new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: [config.path.public] }),
         new HtmlWebpackPlugin({
