@@ -15,3 +15,7 @@ function rotatePoint(center, point, angle) {
     return rotate(cx, cy, x, y, angle);
 }
 exports.rotatePoint = rotatePoint;
+function displayAngleInDegree(deg) {
+    return Math.floor(deg) + " \u00B0";
+}
+exports.displayAngleInDegree = displayAngleInDegree;

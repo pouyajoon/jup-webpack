@@ -9,6 +9,7 @@ __export(require("./utils/timeUtils"));
 __export(require("./utils/mapper"));
 __export(require("./api/where/where"));
 __export(require("./packages/point/point"));
+__export(require("./packages/point/utils"));
 __export(require("./packages/area/area"));
 __export(require("./packages/area/distance"));
 __export(require("./packages/area/perimeter"));

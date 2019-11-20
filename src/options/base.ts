@@ -91,8 +91,8 @@ export default (dirname: string, config: IWebpackConfiguration) => {
             }
         },
         performance: {
-            maxAssetSize: 60 * 2 * 512000,
-            maxEntrypointSize: 60 * 2 * 512000,
+            maxAssetSize: 90 * 2 * 512000,
+            maxEntrypointSize: 90 * 2 * 512000,
 
             // hints: false
             hints: 'error'
