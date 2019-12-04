@@ -50,7 +50,7 @@ exports.default = (function (dirname, config) {
     var resolve = {
         alias: {
             "@gqlb": path.resolve(dirname, "../src/jup"),
-            "@surfy": path.resolve(dirname, "../src/Surfy")
+            "@surfy": path.resolve(dirname, "../src/surfy")
         },
         extensions: extensions
     };
