@@ -21,10 +21,8 @@ var webpack = __importStar(require("webpack"));
 exports.default = (function (helper, externalPackages) {
     var scripts = externalPackages;
     var config = helper.config, packageJson = helper.packageJson;
-    var gqlbPath = path_1.default.join(config.path.root, "src/gqlb/");
     var assetsPath = path_1.default.join(config.path.root, "src/assets/");
     var configPath = path_1.default.join(config.path.root, "node_modules/@jup/webpack/config");
-    var gqlbPackage = require(path_1.default.join(gqlbPath, "package.json"));
     var configuration = helper.getConfiguration(config.name);
     // console.log('configuration', configuration);
     // const configuration = configuration();
@@ -38,8 +36,8 @@ exports.default = (function (helper, externalPackages) {
         tslintAutoFix: true,
         checkSyntacticErrors: true
     };
-    console.log(forkOptions);
     // tslint:disable-next-line:no-console
+    console.log(forkOptions);
     // console.log('icon', icon);
     return [
         // new HardSourceWebpackPlugin(),
@@ -62,7 +60,6 @@ exports.default = (function (helper, externalPackages) {
             template: config.output.template.index,
             data: {
                 version: {
-                    gqlb: gqlbPackage.version,
                     app: packageJson.version
                 },
                 keys: config.keys || {},

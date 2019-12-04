@@ -1,23 +1,23 @@
-import * as  path from 'path';
-import * as fs from 'fs';
-import { merge } from 'lodash';
+import * as fs from "fs";
+import { merge } from "lodash";
+import * as  path from "path";
 
 function json(file: string) {
     return JSON.parse(fs.readFileSync(file).toString());
 }
 
 const configure = (name, gqlbPath, rootPath) => {
-    rootPath = rootPath || '';
+    rootPath = rootPath || "";
     const srcPath = path.join(rootPath, `package.${name}.json`);
-    const gqlbFilePath = path.join(gqlbPath, 'package.json');
+    const gqlbFilePath = path.join(gqlbPath, "package.json");
     const src = json(srcPath);
     const gqlb = json(gqlbFilePath);
 
     const res = merge(gqlb, src);
-    const packagePath = path.join(rootPath, 'package.json');
+    const packagePath = path.join(rootPath, "package.json");
     const packageJson = json(packagePath);
     res.version = packageJson.version;
-    fs.writeFileSync(packagePath, JSON.stringify(res, undefined, 4), { encoding: 'utf-8' });
+    fs.writeFileSync(packagePath, JSON.stringify(res, undefined, 4), { encoding: "utf-8" });
 };
 
 module.exports = configure;

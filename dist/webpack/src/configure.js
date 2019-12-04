@@ -7,23 +7,23 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var path = __importStar(require("path"));
 var fs = __importStar(require("fs"));
 var lodash_1 = require("lodash");
+var path = __importStar(require("path"));
 function json(file) {
     return JSON.parse(fs.readFileSync(file).toString());
 }
 var configure = function (name, gqlbPath, rootPath) {
-    rootPath = rootPath || '';
+    rootPath = rootPath || "";
     var srcPath = path.join(rootPath, "package." + name + ".json");
-    var gqlbFilePath = path.join(gqlbPath, 'package.json');
+    var gqlbFilePath = path.join(gqlbPath, "package.json");
     var src = json(srcPath);
     var gqlb = json(gqlbFilePath);
     var res = lodash_1.merge(gqlb, src);
-    var packagePath = path.join(rootPath, 'package.json');
+    var packagePath = path.join(rootPath, "package.json");
     var packageJson = json(packagePath);
     res.version = packageJson.version;
-    fs.writeFileSync(packagePath, JSON.stringify(res, undefined, 4), { encoding: 'utf-8' });
+    fs.writeFileSync(packagePath, JSON.stringify(res, undefined, 4), { encoding: "utf-8" });
 };
 module.exports = configure;
 var argv = process.argv;

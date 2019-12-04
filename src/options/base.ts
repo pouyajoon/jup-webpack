@@ -1,10 +1,10 @@
-import * as webpack from 'webpack';
-import * as path from 'path';
-import { IWebpackConfiguration, IExternalLib } from '../models';
-import { WebpackHelper } from '../webpackHelper';
-import rules from '../rules/rules';
+import * as path from "path";
+import * as webpack from "webpack";
+import { IExternalLib, IWebpackConfiguration } from "../models";
+import rules from "../rules/rules";
+import { WebpackHelper } from "../webpackHelper";
 // import { externalLibs } from './externalLibs';
-import plugins from './../plugins/plugins';
+import plugins from "./../plugins/plugins";
 
 const externalLibs = [];
 
@@ -13,7 +13,7 @@ function getExternalsUrl(helper: WebpackHelper, libs: IExternalLib[]) {
     const files = libs.map(externalLib => {
         const name = externalLib.name.module;
         const packageVersion = packageJson.dependencies[name];
-        const version = packageVersion.replace('^', '');
+        const version = packageVersion.replace("^", "");
         const cdn: string = externalLib.cdn[config.mode](version);
         return cdn;
     });
@@ -27,23 +27,24 @@ function getExternalLibsMapping(libs: IExternalLib[]) {
 export default (dirname: string, config: IWebpackConfiguration) => {
     // const optimization = require('./optimization');
     const helper = new WebpackHelper(config);
-    const extensions = ['.ts', '.tsx', '.js', '.json', '.css'];
+    const extensions = [".ts", ".tsx", ".js", ".json", ".css"];
 
-    const webpackSrc = path.resolve(dirname, '../../../jup/webpack/src/');
-    const jupCoreSrc = path.resolve(dirname, '../../../jup/core/src/');
+    const webpackSrc = path.resolve(dirname, "../../../jup/webpack/src/");
+    const jupCoreSrc = path.resolve(dirname, "../../../jup/core/src/");
 
     const resolve: any = {
         alias: {
-            '@gqlb': path.resolve(dirname, '../src/gqlb/src/')
+            "@gqlb": path.resolve(dirname, "../src/gqlb"),
+            "@surfy": path.resolve(dirname, "../src/Surfy")
         },
         extensions
     };
 
-    if (config.name === 'development') {
+    if (config.name === "development") {
         resolve.alias = {
             ...resolve.alias,
-            '@jup/webpack': webpackSrc,
-            '@jup/core': jupCoreSrc
+            "@jup/webpack": webpackSrc,
+            "@jup/core": jupCoreSrc
         };
     }
 
@@ -62,21 +63,21 @@ export default (dirname: string, config: IWebpackConfiguration) => {
         // entry: helper.allFiles([jupCoreSrc, webpackSrc, dirname], extensions),
         // entry: [...(helper.allFiles([jupCoreSrc], extensions))],
         // , './src/App.tsx'
-        entry: './src/App.tsx',
+        entry: "./src/App.tsx",
         // entry: './src/gqlb/src/Utils/colors.ts',
         // entry: {
         //     vendor,
         //     main: "./src/App.tsx"
         // },
         output: {
-            filename: '[name].js',
-            chunkFilename: '[name].chunk.js',
+            filename: "[name].js",
+            chunkFilename: "[name].chunk.js",
             pathinfo: true,
             path: config.path.public,
-            publicPath: '/'
+            publicPath: "/"
         },
         resolveLoader: {
-            modules: ['node_modules']
+            modules: ["node_modules"]
         },
         resolve,
         module: {
@@ -85,17 +86,17 @@ export default (dirname: string, config: IWebpackConfiguration) => {
         externals,
         plugins: plugins(helper, externalPackages),
         optimization: {
-            minimize: false,
+            // minimize: false,
             splitChunks: {
-                chunks: 'all'
+                chunks: "all"
             }
         },
         performance: {
             maxAssetSize: 90 * 2 * 512000,
             maxEntrypointSize: 90 * 2 * 512000,
 
-            // hints: false
-            hints: 'error'
+            hints: false
+            // hints: "error"
         }
         // optimization
     };
