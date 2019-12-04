@@ -32,6 +32,7 @@ export default (dirname: string, config: IWebpackConfiguration) => {
     const webpackSrc = path.resolve(dirname, "../../../jup/webpack/src/");
     const jupCoreSrc = path.resolve(dirname, "../../../jup/core/src/");
 
+
     const resolve: any = {
         alias: {
             "@gqlb": path.resolve(dirname, "../src/gqlb"),
@@ -48,6 +49,8 @@ export default (dirname: string, config: IWebpackConfiguration) => {
         };
     }
 
+    // tslint:disable-next-line: no-console
+    console.log("dirname", dirname, resolve);
     const externals = [
         getExternalLibsMapping(externalLibs)
         // /^[!\.]/
