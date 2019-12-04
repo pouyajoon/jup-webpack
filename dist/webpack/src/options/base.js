@@ -50,12 +50,13 @@ exports.default = (function (dirname, config) {
     var resolve = {
         alias: {
             "@gqlb": path.resolve(dirname, "../src/jup"),
+            "@jup": path.resolve(dirname, "../src/jup"),
             "@surfy": path.resolve(dirname, "../src/Surfy")
         },
         extensions: extensions
     };
     if (config.name === "development") {
-        resolve.alias = __assign(__assign({}, resolve.alias), { "@jup/webpack": webpackSrc, "@jup/core": jupCoreSrc });
+        resolve.alias = __assign({ "@jup/webpack": webpackSrc, "@jup/core": jupCoreSrc }, resolve.alias);
     }
     // tslint:disable-next-line: no-console
     console.log("dirname", dirname, resolve);

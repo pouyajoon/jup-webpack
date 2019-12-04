@@ -10,21 +10,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // const path = require('path');
 var path = __importStar(require("path"));
 function getRoot(dirname, folder) {
-    return path.join(dirname, '../', folder || '');
+    return path.join(dirname, "../", folder || "");
 }
 exports.defaultOptions = function (dirname) {
     return {
-        mode: 'development',
-        name: 'development',
+        mode: "development",
+        name: "development",
         port: 8080,
         path: {
-            src: '../src',
-            public: getRoot(dirname, 'www'),
+            src: "../src",
+            public: getRoot(dirname, "www"),
             root: getRoot(dirname)
         },
         output: {
             template: {
-                index: getRoot(dirname, 'src/gqlb/public/index.pug')
+                index: getRoot(dirname, "src/jup/public/index.pug")
             }
         }
     };

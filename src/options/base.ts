@@ -35,6 +35,7 @@ export default (dirname: string, config: IWebpackConfiguration) => {
     const resolve: any = {
         alias: {
             "@gqlb": path.resolve(dirname, "../src/jup"),
+            "@jup": path.resolve(dirname, "../src/jup"),
             "@surfy": path.resolve(dirname, "../src/Surfy")
         },
         extensions
@@ -42,9 +43,9 @@ export default (dirname: string, config: IWebpackConfiguration) => {
 
     if (config.name === "development") {
         resolve.alias = {
-            ...resolve.alias,
             "@jup/webpack": webpackSrc,
-            "@jup/core": jupCoreSrc
+            "@jup/core": jupCoreSrc,
+            ...resolve.alias
         };
     }
 
