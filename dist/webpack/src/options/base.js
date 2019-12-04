@@ -57,6 +57,8 @@ exports.default = (function (dirname, config) {
     if (config.name === "development") {
         resolve.alias = __assign(__assign({}, resolve.alias), { "@jup/webpack": webpackSrc, "@jup/core": jupCoreSrc });
     }
+    // tslint:disable-next-line: no-console
+    console.log("dirname", dirname, resolve);
     var externals = [
         getExternalLibsMapping(externalLibs)
         // /^[!\.]/
