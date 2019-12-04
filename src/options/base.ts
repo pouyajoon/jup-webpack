@@ -34,7 +34,7 @@ export default (dirname: string, config: IWebpackConfiguration) => {
 
     const resolve: any = {
         alias: {
-            "@gqlb": path.resolve(dirname, "../src/gqlb"),
+            "@gqlb": path.resolve(dirname, "../src/jup"),
             "@surfy": path.resolve(dirname, "../src/Surfy")
         },
         extensions
