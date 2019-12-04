@@ -49,7 +49,7 @@ exports.default = (function (dirname, config) {
     var jupCoreSrc = path.resolve(dirname, "../../../jup/core/src/");
     var resolve = {
         alias: {
-            "@gqlb": path.resolve(dirname, "../src/gqlb"),
+            "@gqlb": path.resolve(dirname, "../src/jup"),
             "@surfy": path.resolve(dirname, "../src/Surfy")
         },
         extensions: extensions
