@@ -1,6 +1,6 @@
 {
   "name": "@jup/webpack",
-  "version": "0.0.47",
+  "version": "0.0.48",
   "description": "gqlb webpack configurations",
   "main": "dist/index.js",
   "repository": "git@github.com:pouyajoon/jup-webpack.git",
