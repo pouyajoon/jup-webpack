@@ -17,7 +17,6 @@ var fork_ts_checker_webpack_plugin_1 = __importDefault(require("fork-ts-checker-
 var html_webpack_plugin_1 = __importDefault(require("html-webpack-plugin"));
 var path_1 = __importDefault(require("path"));
 var webpack = __importStar(require("webpack"));
-var webpack_bundle_analyzer_1 = require("webpack-bundle-analyzer");
 exports.default = (function (helper, externalPackages) {
     var scripts = externalPackages;
     var config = helper.config, packageJson = helper.packageJson;
@@ -73,11 +72,11 @@ exports.default = (function (helper, externalPackages) {
         // })
         new fork_ts_checker_webpack_plugin_1.default(forkOptions)
     ];
-    if (helper.config.name !== "development") {
-        plugins.push(new webpack_bundle_analyzer_1.BundleAnalyzerPlugin({
-            analyzerMode: "static"
-        }));
-    }
+    // if (helper.config.name !== "development") {
+    //     plugins.push(new BundleAnalyzerPlugin({
+    //         analyzerMode: "static"
+    //     }));
+    // }
     if (helper.config.name === "development") {
         plugins.push(new webpack.HotModuleReplacementPlugin());
     }
