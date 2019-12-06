@@ -1,22 +1,22 @@
-import * as path from 'path';
-import { IWebpackConfiguration, IPackageJson } from './models';
-import { merge } from 'lodash';
-import { mergeArrayOfArray } from '@jup/core';
+import { mergeArrayOfArray } from "@jup/core";
+import { merge } from "lodash";
+import * as path from "path";
+import { IPackageJson, IWebpackConfiguration } from "./models";
 // import { IConfiguration } from '@gqlb/Configuration/models';
 
 export class WebpackHelper {
-    config: IWebpackConfiguration;
+    public config: IWebpackConfiguration;
     constructor(config: IWebpackConfiguration) {
         this.config = config;
     }
 
-    getConfiguration(name: string) {
+    public getConfiguration(name: string) {
         const base = require(this.getFromRoot(`configurations/base.config.json`));
         const config = require(this.getFromRoot(`configurations/${name}.config.json`));
         return merge(base, config);
     }
 
-    getFromRoot(p: string) {
+    public getFromRoot(p: string) {
         return path.join(this.config.path.root, p);
     }
 
@@ -27,28 +27,28 @@ export class WebpackHelper {
     // }
 
     get packageJson(): IPackageJson {
-        return require(path.join(this.config.path.root, 'package.json'));
+        return require(path.join(this.config.path.root, "package.json"));
     }
 
-    resolveApp(relativePath: string) {
-        const appDirectory = require('fs').realpathSync(process.cwd());
+    public resolveApp(relativePath: string) {
+        const appDirectory = require("fs").realpathSync(process.cwd());
         return path.resolve(appDirectory, relativePath);
     }
 
-    allFiles(dirnames: string[], extentions: string[]) {
+    public allFiles(dirnames: string[], extentions: string[]) {
         const files = dirnames.map(dn => this.files(dn, extentions));
         const all = mergeArrayOfArray(files);
         return all;
     }
 
-    files(dirname: string, extentions: string[]) {
-        const glob = require('glob');
+    public files(dirname: string, extentions: string[]) {
+        const glob = require("glob");
         const srcPath = path.join(dirname, this.config.path.src);
 
         let files: string[] = [];
         extentions.forEach(ext => {
             const resolveFiles = glob.sync(path.join(srcPath, `**/*${ext}`))
-                .filter(f => ['node_modules', '.spec.', 'webpack'].filter(exclude => f.indexOf(exclude) !== -1).length === 0);
+                .filter(f => ["node_modules", ".spec.", "webpack"].filter(exclude => f.indexOf(exclude) !== -1).length === 0);
             files = files.concat(resolveFiles);
         });
         return files;

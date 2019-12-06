@@ -5,8 +5,8 @@ import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 import * as webpack from "webpack";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import { WebpackHelper } from "../webpackHelper";
-// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 export default (helper: WebpackHelper, externalPackages) => {
     const scripts = externalPackages;
@@ -31,10 +31,8 @@ export default (helper: WebpackHelper, externalPackages) => {
         tslintAutoFix: true,
         checkSyntacticErrors: true
     };
-    // tslint:disable-next-line:no-console
-    console.log(forkOptions);
-    // console.log('icon', icon);
-    return [
+
+    const plugins = [
         // new HardSourceWebpackPlugin(),
         // new ManifestPlugin({
         //     publicPath: config.output.path
@@ -63,16 +61,25 @@ export default (helper: WebpackHelper, externalPackages) => {
                 icon
             }
         }),
-        // new BundleAnalyzerPlugin({
-        //     analyzerMode: 'static'
-        // }),
         // new webpack.ProvidePlugin({
         //     // "React": "react",
         //     // "react": "React",
         //     // "window.react": "React",
         //     // "window.React": "React"
         // })
-        new webpack.HotModuleReplacementPlugin(),
         new ForkTsCheckerWebpackPlugin(forkOptions)
     ];
+
+    // if (helper.config.name !== "development") {
+    //     plugins.push(new BundleAnalyzerPlugin({
+    //         analyzerMode: "static"
+    //     }));
+    // }
+    if (helper.config.name === "development") {
+        plugins.push(new webpack.HotModuleReplacementPlugin());
+    }
+    // tslint:disable-next-line:no-console
+    console.log(forkOptions);
+    // console.log('icon', icon);
+    return plugins;
 };

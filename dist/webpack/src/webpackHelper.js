@@ -7,9 +7,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var path = __importStar(require("path"));
-var lodash_1 = require("lodash");
 var core_1 = require("@jup/core");
+var lodash_1 = require("lodash");
+var path = __importStar(require("path"));
 // import { IConfiguration } from '@gqlb/Configuration/models';
 var WebpackHelper = /** @class */ (function () {
     function WebpackHelper(config) {
@@ -30,13 +30,13 @@ var WebpackHelper = /** @class */ (function () {
         //     return require(`./loaders/${name}`)(this);
         // }
         get: function () {
-            return require(path.join(this.config.path.root, 'package.json'));
+            return require(path.join(this.config.path.root, "package.json"));
         },
         enumerable: true,
         configurable: true
     });
     WebpackHelper.prototype.resolveApp = function (relativePath) {
-        var appDirectory = require('fs').realpathSync(process.cwd());
+        var appDirectory = require("fs").realpathSync(process.cwd());
         return path.resolve(appDirectory, relativePath);
     };
     WebpackHelper.prototype.allFiles = function (dirnames, extentions) {
@@ -46,12 +46,12 @@ var WebpackHelper = /** @class */ (function () {
         return all;
     };
     WebpackHelper.prototype.files = function (dirname, extentions) {
-        var glob = require('glob');
+        var glob = require("glob");
         var srcPath = path.join(dirname, this.config.path.src);
         var files = [];
         extentions.forEach(function (ext) {
             var resolveFiles = glob.sync(path.join(srcPath, "**/*" + ext))
-                .filter(function (f) { return ['node_modules', '.spec.', 'webpack'].filter(function (exclude) { return f.indexOf(exclude) !== -1; }).length === 0; });
+                .filter(function (f) { return ["node_modules", ".spec.", "webpack"].filter(function (exclude) { return f.indexOf(exclude) !== -1; }).length === 0; });
             files = files.concat(resolveFiles);
         });
         return files;
