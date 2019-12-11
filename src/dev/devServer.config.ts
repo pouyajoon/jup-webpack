@@ -1,4 +1,4 @@
-import { IWebpackConfiguration } from '../models';
+import { IWebpackConfiguration } from "../models";
 
 export default (config: IWebpackConfiguration) => {
     return {
@@ -8,10 +8,10 @@ export default (config: IWebpackConfiguration) => {
         // },
         // contentBase: path.join(publicPath, '../'), // boolean | string | array, static file location
         // open: true,
-        contentBase: '/',
+        contentBase: "/",
         compress: true, // enable gzip compression
         historyApiFallback: {
-            index: '/index.html'
+            index: "/index.html"
         }, // true for index.html upon 404, object for multiple paths
         // hmr: true,
         progress: false,
@@ -25,14 +25,14 @@ export default (config: IWebpackConfiguration) => {
         // public: 'localhost:3035',
         // ...
         headers: {
-            'Access-Control-Allow-Origin': '*'
+            "Access-Control-Allow-Origin": "*"
         },
         overlay: true,
         stats: {
             errorDetails: true
         },
         watchOptions: {
-            ignored: '/node_modules/'
+            ignored: "/node_modules/"
         }
 
     };

@@ -1,4 +1,4 @@
-import { WebpackHelper } from '../webpackHelper';
+import { WebpackHelper } from "../webpackHelper";
 
 export default (helper: WebpackHelper) => ({
 
