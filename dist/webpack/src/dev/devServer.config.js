@@ -8,10 +8,10 @@ exports.default = (function (config) {
         // },
         // contentBase: path.join(publicPath, '../'), // boolean | string | array, static file location
         // open: true,
-        contentBase: '/',
+        contentBase: "/",
         compress: true,
         historyApiFallback: {
-            index: '/index.html'
+            index: "/index.html"
         },
         // hmr: true,
         progress: false,
@@ -25,14 +25,14 @@ exports.default = (function (config) {
         // public: 'localhost:3035',
         // ...
         headers: {
-            'Access-Control-Allow-Origin': '*'
+            "Access-Control-Allow-Origin": "*"
         },
         overlay: true,
         stats: {
             errorDetails: true
         },
         watchOptions: {
-            ignored: '/node_modules/'
+            ignored: "/node_modules/"
         }
     };
 });
