@@ -1,11 +1,19 @@
+
+interface IAppConfiguration {
+    google: {
+        key: string;
+    };
+    backend: {
+        endpoint: string;
+    };
+}
 export interface IWebpackConfiguration {
     mode: "development" | "production";
     name: "development" | "alpha" | "beta" | "production";
     port: number;
 
-    keys?: {
-        google?: string;
-    };
+    app?: IAppConfiguration;
+
     path: {
         src: string;
         public: string;

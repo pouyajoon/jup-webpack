@@ -28,7 +28,7 @@ export default (helper: WebpackHelper, externalPackages) => {
         tsconfig: helper.getFromRoot("tsconfig.json"),
         tslint: helper.getFromRoot("tslint.json"),
         measureCompilationTime: true,
-        tslintAutoFix: true,
+        tslintAutoFix: false,
         checkSyntacticErrors: true
     };
 
@@ -55,7 +55,7 @@ export default (helper: WebpackHelper, externalPackages) => {
                 version: {
                     app: packageJson.version
                 },
-                keys: config.keys || {},
+                app: config.app || {},
                 env: config.name,
                 title: `${packageJson.name} admin`, scripts, mode: config,
                 icon

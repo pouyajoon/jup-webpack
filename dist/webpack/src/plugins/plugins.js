@@ -32,7 +32,7 @@ exports.default = (function (helper, externalPackages) {
         tsconfig: helper.getFromRoot("tsconfig.json"),
         tslint: helper.getFromRoot("tslint.json"),
         measureCompilationTime: true,
-        tslintAutoFix: true,
+        tslintAutoFix: false,
         checkSyntacticErrors: true
     };
     var plugins = [
@@ -58,7 +58,7 @@ exports.default = (function (helper, externalPackages) {
                 version: {
                     app: packageJson.version
                 },
-                keys: config.keys || {},
+                app: config.app || {},
                 env: config.name,
                 title: packageJson.name + " admin", scripts: scripts, mode: config,
                 icon: icon

@@ -12,18 +12,18 @@
     "dev": "tsc --watch"
   },
   "devDependencies": {
-    "@jup/core": "0.3.61",
-    "@types/node": "12.12.14",
+    "@jup/core": "0.3.69",
+    "@types/node": "12.12.19",
     "@types/webpack": "4.41.0",
     "lodash": "4.17.15",
     "tslint": "5.20.1",
     "typescript": "3.7.3",
-    "webpack": "4.41.2",
+    "webpack": "4.41.3",
     "webpack-bundle-analyzer": "3.6.0"
   },
   "dependencies": {
     "clean-webpack-plugin": "3.0.0",
-    "copy-webpack-plugin": "5.0.5",
+    "copy-webpack-plugin": "5.1.1",
     "fork-ts-checker-webpack-plugin": "3.1.1",
     "html-webpack-plugin": "3.2.0"
   },
