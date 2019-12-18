@@ -64,3 +64,7 @@ function mergeOnName(list) {
     return modelsStore;
 }
 exports.mergeOnName = mergeOnName;
+function sortOnName(a, b) {
+    return a.name.localeCompare(b.name);
+}
+exports.sortOnName = sortOnName;

@@ -14,3 +14,7 @@ __export(require("./packages/area/area"));
 __export(require("./packages/area/distance"));
 __export(require("./packages/area/perimeter"));
 __export(require("./packages/geometry/geometry"));
+__export(require("./utils/arrayUtils"));
+__export(require("./utils/mapper"));
+__export(require("./utils/stringUtils"));
+__export(require("./utils/timeUtils"));
