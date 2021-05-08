@@ -15,7 +15,7 @@
     "@jup/core": "0.3.69",
     "@types/node": "12.12.19",
     "@types/webpack": "4.41.0",
-    "lodash": "4.17.15",
+    "lodash": "4.17.21",
     "tslint": "5.20.1",
     "typescript": "3.7.3",
     "webpack": "4.41.3",
